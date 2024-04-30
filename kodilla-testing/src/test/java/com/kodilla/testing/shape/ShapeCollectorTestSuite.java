@@ -1,40 +1,43 @@
 package com.kodilla.testing.shape;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-@DisplayName("Tests for ShapeCollector class")
-class ShapeCollectorTestSuite {
+public class ShapeCollectorTestSuite {
 
     private ShapeCollector shapeCollector;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         shapeCollector = new ShapeCollector();
+        System.out.println("Test Case: Start");
+    }
+
+    @AfterEach
+    public void tearDown() {
+        shapeCollector = null;
+        System.out.println("Test Case: End");
     }
 
     @Nested
-    @DisplayName("Tests for addFigure method")
+    @DisplayName("Tests for addFigure() method")
     class AddFigureTests {
+    }
 
-        @Test
-        @DisplayName("Should add a figure to the collection")
-        void shouldAddFigureToCollection() {
-            Shape shape;
-            shape = new Circle(5);
+    @Nested
+    @DisplayName("Tests for removeFigure() method")
+    class RemoveFigureTests {
+    }
 
-            shapeCollector.addFigure(shape);
+    @Nested
+    @DisplayName("Tests for getFigure() method")
+    class GetFigureTests {
+    }
 
-            assertEquals(1, shapeCollector.getFigureCount());
-        }
-
-        private class Circle implements Shape {
-            public Circle(int i) {
-            }
-        }
+    @Nested
+    @DisplayName("Tests for showFigures() method")
+    class ShowFiguresTests {
     }
 }

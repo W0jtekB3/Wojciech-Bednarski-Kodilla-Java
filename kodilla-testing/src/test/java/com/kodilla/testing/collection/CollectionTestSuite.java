@@ -1,45 +1,61 @@
-import com.kodilla.testing.collection.OddNumbersExterminator;
-import org.junit.jupiter.api.*;
+// CollectionTestSuite.java
+package com.kodilla.testing.collection;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@DisplayName("Tests for OddNumbersExterminator class")
-class CollectionTestSuite {
+public class CollectionTestSuite {
+
+    private OddNumbersExterminator exterminator;
 
     @BeforeEach
-    void before() {
-        System.out.println("Starting test...");
+    public void setUp() {
+        exterminator = new OddNumbersExterminator();
+        System.out.println("Test Case: Start");
     }
 
     @AfterEach
-    void after() {
-        System.out.println("Test completed.");
+    public void tearDown() {
+        exterminator = null;
+        System.out.println("Test Case: End");
     }
 
     @Test
-    @DisplayName("Test whether the class behaves correctly when the list is empty")
-    void testOddNumbersExterminatorEmptyList() {
-        OddNumbersExterminator exterminator = new OddNumbersExterminator();
+    @DisplayName("Testing exterminate() method with an empty list")
+    public void testOddNumbersExterminatorEmptyList() {
+        // Given
         List<Integer> emptyList = new ArrayList<>();
 
+        // When
         List<Integer> result = exterminator.exterminate(emptyList);
 
+        // Then
         assertEquals(0, result.size());
     }
 
     @Test
-    @DisplayName("Test whether the class behaves correctly when the list contains even and odd numbers")
-    void testOddNumbersExterminatorNormalList() {
-        OddNumbersExterminator exterminator = new OddNumbersExterminator();
-        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-        List<Integer> expected = Arrays.asList(2, 4, 6, 8, 10);
+    @DisplayName("Testing exterminate() method with a list containing even and odd numbers")
+    public void testOddNumbersExterminatorNormalList() {
+        // Given
+        List<Integer> numbers = new ArrayList<>();
+        numbers.add(1);  // odd
+        numbers.add(2);  // even
+        numbers.add(3);  // odd
+        numbers.add(4);  // even
 
+        // When
         List<Integer> result = exterminator.exterminate(numbers);
 
-        assertEquals(expected, result);
+        // Then
+        assertEquals(2, result.size());
+        assertEquals(2, result.get(0));
+        assertEquals(4, result.get(1));
     }
 }

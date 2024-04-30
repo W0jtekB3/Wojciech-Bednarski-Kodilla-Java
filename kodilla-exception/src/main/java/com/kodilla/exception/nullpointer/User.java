@@ -13,6 +13,10 @@ public class User {
     public String getName() {
         return name;
     }
+
+    public String getSurname() {
+    }
+
     public class OptionalExample {
         public static void main(String[] args) {
             User user = new User("user1");

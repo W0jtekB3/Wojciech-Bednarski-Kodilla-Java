@@ -1,27 +1,42 @@
-package com.kodilla.testing.weather.mock;                                     // [1]
-
-import com.kodilla.testing.weather.stub.Temperatures;
+import com.kodilla.testing.weather.stub.TemperatureProvider;
 import com.kodilla.testing.weather.stub.WeatherForecast;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-class WeatherForecastTestSuite {                                              // [7]
+import static org.mockito.Mockito.when;
 
-    @Test                                                                      // [8]
-    void testCalculateForecastWithMock() {                                     // [9]
-        //Given
-        Temperatures temperaturesMock = mock(Temperatures.class);               // [10]
-        WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);// [11]
+@ExtendWith(MockitoExtension.class)
+class WeatherForecastTestSuite {
 
-        //When
-        int quantityOfSensors = weatherForecast.calculateForecast().size();     // [12]
+    @Mock
+    public TemperatureProvider temperaturesMock;
 
-        //Then
-        Assertions.assertEquals(5, quantityOfSensors);                 // [13]
-    }                                                                          // [14]
+    @Test
+    void testCalculateAverageTemperature() {
+        // Given
+        when(temperaturesMock.getTemperatures()).thenReturn(List.of(20.0, 25.0, 30.0, 35.0));
+        WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
 
-    private Temperatures mock(Class<Temperatures> temperaturesClass) {
-        return null;
+        // When
+        double averageTemperature = weatherForecast.calculateAverageTemperature();
+
+        // Then
+        Assertions.assertEquals(27.5, averageTemperature);
     }
-}                                                                             // [15]
 
+    @Test
+    void testCalculateMedianTemperature() {
+        // Given
+        when(temperaturesMock.getTemperatures()).thenReturn(List.of(20.0, 25.0, 30.0, 35.0));
+        WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
+
+        // When
+        double medianTemperature = weatherForecast.calculateMedianTemperature();
+
+        // Then
+        Assertions.assertEquals(27.5, medianTemperature);
+    }
+}

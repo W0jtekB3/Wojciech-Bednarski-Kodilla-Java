@@ -1,4 +1,3 @@
-// CollectionTestSuite.java
 package com.kodilla.testing.collection;
 
 import org.junit.jupiter.api.AfterEach;
@@ -11,51 +10,42 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CollectionTestSuite {
+@DisplayName("Tests for OddNumbersExterminator")
+class CollectionTestSuite {
 
     private OddNumbersExterminator exterminator;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         exterminator = new OddNumbersExterminator();
-        System.out.println("Test Case: Start");
+        System.out.println("Preparing to execute test...");
     }
 
     @AfterEach
-    public void tearDown() {
+    void tearDown() {
         exterminator = null;
-        System.out.println("Test Case: End");
+        System.out.println("Test completed.");
     }
 
     @Test
-    @DisplayName("Testing exterminate() method with an empty list")
-    public void testOddNumbersExterminatorEmptyList() {
+    @DisplayName("Test for empty list")
+    void testOddNumbersExterminatorEmptyList() {
         // Given
         List<Integer> emptyList = new ArrayList<>();
-
         // When
         List<Integer> result = exterminator.exterminate(emptyList);
-
         // Then
-        assertEquals(0, result.size());
+        assertEquals(0, result.size(), "The result should be an empty list");
     }
 
     @Test
-    @DisplayName("Testing exterminate() method with a list containing even and odd numbers")
-    public void testOddNumbersExterminatorNormalList() {
+    @DisplayName("Test for normal list")
+    void testOddNumbersExterminatorNormalList() {
         // Given
-        List<Integer> numbers = new ArrayList<>();
-        numbers.add(1);  // odd
-        numbers.add(2);  // even
-        numbers.add(3);  // odd
-        numbers.add(4);  // even
-
+        List<Integer> normalList = List.of(1, 2, 3, 4, 5, 6);
         // When
-        List<Integer> result = exterminator.exterminate(numbers);
-
+        List<Integer> result = exterminator.exterminate(normalList);
         // Then
-        assertEquals(2, result.size());
-        assertEquals(2, result.get(0));
-        assertEquals(4, result.get(1));
+        assertEquals(List.of(2, 4, 6), result, "The result should contain only even numbers");
     }
 }

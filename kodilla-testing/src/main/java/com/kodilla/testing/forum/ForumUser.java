@@ -1,67 +1,68 @@
-package com.kodilla.testing.forum;                             // [1]
+package com.kodilla.testing.forum;
 
-import java.util.ArrayList;                                    // [2]
-import java.util.LinkedList;                                   // [3]
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
-import java.util.List;                                         // [4]
-public class ForumUser {                                       // [5]
+public class ForumUser {
 
-    private String name;                                        // [6]
-    private String realName;                                    // [7]
-    private List<ForumPost> posts = new ArrayList<>();          // [8]
-    private List<ForumComment> comments = new LinkedList<>();   // [9]
+    private String name;
+    private String realName;
+    private List<ForumPost> posts = new ArrayList<>();
+    private List<ForumComment> comments = new LinkedList<>();
 
-    public ForumUser(String name, String realName) {            // [10]
-        //name visible on forum
-        this.name = name;                                        // [11]
-        //real name of the user
-        this.realName = realName;                                // [12]
-    }                                                           // [13]
+    public ForumUser(String name, String realName) {
+        this.name = name;
+        this.realName = realName;
+    }
 
-    public void addPost(String author, String postBody) {       // [14]
-        // do nothing
-    }                                                           // [15]
+    public void addPost(String author, String postBody) {
+        ForumPost newPost = new ForumPost(postBody, author);
+        posts.add(newPost);
+    }
 
-    public void addComment(ForumPost thePost, String author, String commentBody) {   // [16]
-        // do nothing
-    }                                                           // [17]
+    public void addComment(ForumPost thePost, String author, String commentBody) {
+        ForumComment newComment = new ForumComment(thePost, commentBody, author);
+        comments.add(newComment);
+    }
 
-    public int getPostsQuantity() {                             // [18]
-        // return 100 temporarily
-        return 100;                                              // [19]
-    }                                                           // [20]
+    public int getPostsQuantity() {
+        return posts.size();
+    }
 
-    public int getCommentsQuantity() {                          // [21]
-        // return 100 temporarily
-        return 100;                                              // [22]
-    }                                                           // [23]
+    public int getCommentsQuantity() {
+        return comments.size();
+    }
 
-    public ForumPost getPost(int postNumber) {                  // [24]
-        // returning null means that the operation was unsuccessful
-        return null;                                             // [25]
-    }                                                           // [26]
+    public ForumPost getPost(int postNumber) {
+        if (postNumber >= 0 && postNumber < posts.size()) {
+            return posts.get(postNumber);
+        } else {
+            return null;
+        }
+    }
 
-    public ForumComment getComment(int commentNumber) {         // [27]
-        // returning null means that the operation was unsuccessful
-        return null;                                             // [28]
-    }                                                           // [29]
+    public ForumComment getComment(int commentNumber) {
+        if (commentNumber >= 0 && commentNumber < comments.size()) {
+            return comments.get(commentNumber);
+        } else {
+            return null;
+        }
+    }
 
-    public boolean removePost(ForumPost thePost) {              // [30]
-        // return true temporarily
-        return true;                                             // [31]
-    }                                                           // [32]
+    public boolean removePost(ForumPost thePost) {
+        return posts.remove(thePost);
+    }
 
-    public boolean removeComment(ForumComment theComment) {     // [33]
-        // return true temporarily
-        return true;                                             // [34]
-    }                                                           // [35]
+    public boolean removeComment(ForumComment theComment) {
+        return comments.remove(theComment);
+    }
 
-    public String getName() {                                   // [36]
-        return name;                                             // [37]
-    }                                                           // [38]
+    public String getName() {
+        return name;
+    }
 
-    public String getRealName() {                               // [39]
-        return realName;                                         // [40]
-    }                                                           // [41]
+    public String getRealName() {
+        return realName;
+    }
 }
-

@@ -15,6 +15,7 @@ public class User {
     }
 
     public String getSurname() {
+        return "";
     }
 
     public class OptionalExample {

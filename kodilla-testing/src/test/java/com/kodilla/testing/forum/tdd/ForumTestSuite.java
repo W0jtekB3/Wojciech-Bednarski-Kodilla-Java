@@ -1,12 +1,12 @@
 package com.kodilla.testing.forum.tdd;
 
+import com.kodilla.spring.forum.ForumUser;
 import com.kodilla.testing.forum.ForumComment;
 import com.kodilla.testing.forum.ForumPost;
-import com.kodilla.testing.forum.ForumUser;
 import org.junit.jupiter.api.*;
 
 @DisplayName("TDD: Forum Test Suite \uD83D\uDE31")
-public class ForumTestSuite {
+class ForumTestSuite {
 
     private static int testCounter = 0;
 
@@ -26,7 +26,7 @@ public class ForumTestSuite {
         System.out.println("Preparing to execute test #" + testCounter);
     }
     @Test
-    public void testAddPost() {
+    void testAddPost() {
         //Given
         ForumUser forumUser = new ForumUser("mrsmith", "John Smith");
 

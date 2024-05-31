@@ -1,4 +1,5 @@
 package com.kodilla.good.patterns.challenge;
+
 public class OrderRequest {
     private User user;
     private Product product;

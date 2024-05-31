@@ -1,6 +1,6 @@
 package com.kodilla.good.patterns.challenge;
 
-public class ProductOrderApp {
+class ProductOrderApp {
 
     private InformationService informationService;
     private OrderService orderService;
@@ -18,7 +18,9 @@ public class ProductOrderApp {
         this.orderRepository = new OrderRepository();
 
         // Example order request
-        OrderRequest orderRequest = new OrderRequest(/* fill in user and product information */);
+        User user = new User("John Doe");
+        Product product = new Product("Laptop");
+        OrderRequest orderRequest = new OrderRequest(user, product);
 
         // Process the order
         OrderDto result = processOrder(orderRequest);

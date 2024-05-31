@@ -1,4 +1,5 @@
 package com.kodilla.good.patterns.challenge;
+
 public class OrderDto {
     private User user;
     private boolean isOrdered;

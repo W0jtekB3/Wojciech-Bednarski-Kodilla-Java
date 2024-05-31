@@ -1,6 +1,6 @@
 package strategy;
 
-import com.kodilla.patterns.strategy.predictors.ConservativePredictor;
+import strategy.predictors.ConservativePredictor;
 
 public class IndividualCustomer extends Customer {
 

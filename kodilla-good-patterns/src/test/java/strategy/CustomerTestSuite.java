@@ -1,9 +1,9 @@
 package strategy;
 
-import com.kodilla.patterns.strategy.predictors.AggressivePredictor;
 import org.junit.jupiter.api.Test;
+import strategy.predictors.AggressivePredictor;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class CustomerTestSuite {
 

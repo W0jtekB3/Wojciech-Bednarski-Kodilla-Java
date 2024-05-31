@@ -1,6 +1,6 @@
 package strategy;
 
-import com.kodilla.patterns.strategy.predictors.BalancedPredictor;
+import strategy.predictors.BalancedPredictor;
 
 public class CorporateCustomer extends Customer {
 

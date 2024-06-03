@@ -1,4 +1,3 @@
-// src/main/java/com/kodilla/spring/portfolio/BoardConfig.java
 package com.kodilla.spring.portfolio;
 
 import org.springframework.context.annotation.Bean;

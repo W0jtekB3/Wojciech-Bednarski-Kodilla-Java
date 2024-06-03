@@ -29,4 +29,5 @@ public class CalculatorTest {
         // Then
         Assertions.assertEquals(2, result);
     }
+
 }

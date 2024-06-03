@@ -4,12 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShapeCollector {
-
-    private List<Shape> shapes;
-
-    public ShapeCollector() {
-        shapes = new ArrayList<>();
-    }
+    private List<Shape> shapes = new ArrayList<>();
 
     public void addFigure(Shape shape) {
         shapes.add(shape);
@@ -22,15 +17,17 @@ public class ShapeCollector {
     public Shape getFigure(int n) {
         if (n >= 0 && n < shapes.size()) {
             return shapes.get(n);
-        } else {
-            return null;
         }
+        return null;
     }
 
     public String showFigures() {
-        StringBuilder result = new StringBuilder("Shapes in collection:\n");
+        StringBuilder result = new StringBuilder();
         for (Shape shape : shapes) {
-            result.append(shape.getShapeName()).append("\n");
+            result.append(shape.getShapeName()).append(", ");
+        }
+        if (result.length() > 0) {
+            result.setLength(result.length() - 2); // Remove trailing comma and space
         }
         return result.toString();
     }

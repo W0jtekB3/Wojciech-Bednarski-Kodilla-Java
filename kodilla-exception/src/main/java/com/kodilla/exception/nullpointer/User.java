@@ -1,7 +1,5 @@
 package com.kodilla.exception.nullpointer;
 
-import java.util.Optional;
-
 public class User {
 
     private String name;
@@ -12,17 +10,5 @@ public class User {
 
     public String getName() {
         return name;
-    }
-
-    public String getSurname() {
-        return "";
-    }
-
-    public class OptionalExample {
-        public static void main(String[] args) {
-            User user = new User("user1");
-
-            Optional<User> optionalUser = Optional.ofNullable(user);
-        }
     }
 }

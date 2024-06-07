@@ -1,0 +1,27 @@
+plugins {
+	id 'java'
+	id 'maven-publish'
+}
+
+group = 'com.kodilla'
+version = '1.0-SNAPSHOT'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.hibernate:hibernate-core:5.4.30.Final'
+	implementation 'javax.persistence:javax.persistence-api:2.2'
+	implementation 'mysql:mysql-connector-java:8.0.23'
+	testImplementation 'junit:junit:4.13.2'
+}
+
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}
+
+// Configure the Gradle wrapper task
+task wrapper(type: Wrapper) {
+	gradleVersion = '7.3.1'
+}

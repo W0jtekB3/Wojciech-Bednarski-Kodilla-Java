@@ -8,7 +8,6 @@ public class Task {
 
     @Id
     @GeneratedValue
-    @Column(name = "ID")
     private int id;
 
     @Column(name = "DESCRIPTION")
@@ -35,17 +34,5 @@ public class Task {
 
     public int getDuration() {
         return duration;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setDuration(int duration) {
-        this.duration = duration;
     }
 }

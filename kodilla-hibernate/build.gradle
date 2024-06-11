@@ -1,27 +1,24 @@
 plugins {
+	id 'org.springframework.boot' version '2.7.1'
+	id 'io.spring.dependency-management' version '1.0.12.RELEASE'
 	id 'java'
-	id 'maven-publish'
 }
 
 group = 'com.kodilla'
-version = '1.0-SNAPSHOT'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
 
 repositories {
 	mavenCentral()
 }
 
 dependencies {
-	implementation 'org.hibernate:hibernate-core:5.4.30.Final'
-	implementation 'javax.persistence:javax.persistence-api:2.2'
-	implementation 'mysql:mysql-connector-java:8.0.23'
-	testImplementation 'junit:junit:4.13.2'
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'mysql:mysql-connector-java'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-tasks.withType(JavaCompile) {
-	options.encoding = 'UTF-8'
-}
-
-// Configure the Gradle wrapper task
-task wrapper(type: Wrapper) {
-	gradleVersion = '7.3.1'
+test {
+	useJUnitPlatform()
 }

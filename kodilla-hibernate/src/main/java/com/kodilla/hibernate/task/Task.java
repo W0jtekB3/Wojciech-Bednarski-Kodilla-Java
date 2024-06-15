@@ -3,17 +3,16 @@ package com.kodilla.hibernate.task;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "TASKS")
+@Table(name = "tasks")
 public class Task {
-
     @Id
     @GeneratedValue
     private int id;
 
-    @Column(name = "DESCRIPTION")
+    @Column(name = "description")
     private String description;
 
-    @Column(name = "DURATION")
+    @Column(name = "duration")
     private int duration;
 
     public Task() {

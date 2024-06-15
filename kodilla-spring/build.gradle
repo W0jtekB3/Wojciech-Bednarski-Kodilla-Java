@@ -1,16 +1,20 @@
 plugins {
+    id 'org.springframework.boot' version '2.7.0'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
-    id 'maven-publish'
 }
 
 group = 'com.kodilla'
 version = '1.0-SNAPSHOT'
+sourceCompatibility = '17'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation 'org.hibernate:hibernate-core:5.4.30.Final'
     implementation 'javax.persistence:javax.persistence-api:2.2'
     implementation 'mysql:mysql-connector-java:8.0.23'

@@ -25,7 +25,6 @@ public class Checkers {
     }
 
     public static class CheckersBuilder {                                // [6]
-
         private Board board = new Board();                                // [7]
         private String playerOne = "";                                    // [8]
         private String playerTwo = "";                                    // [9]

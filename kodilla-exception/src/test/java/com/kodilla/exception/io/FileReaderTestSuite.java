@@ -13,14 +13,16 @@ class FileReaderTestSuite {
         // when & then
         assertDoesNotThrow(() -> fileReader.readFile());
     }
+
     @Test
-    void whenFileDosentExistsReadFileShouldThrowException() {
+    void whenFileDoesNotExistReadFileShouldThrowException() {
         // given
         FileReader fileReader = new FileReader();
         String fileName = "nie_ma_takiego_pliku.txt";
         // when & then
         assertThrows(FileReaderException.class, () -> fileReader.readFile(fileName));
     }
+
     @Test
     public void testReadFileWithName() {
         // given

@@ -1,6 +1,5 @@
 package com.kodilla.spring.calculator;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -8,7 +7,6 @@ public class Calculator {
 
     private final Display display;
 
-    @Autowired
     public Calculator(Display display) {
         this.display = display;
     }
@@ -32,12 +30,11 @@ public class Calculator {
     }
 
     public double div(double a, double b) {
-        if (b != 0) {
-            double result = a / b;
-            display.displayValue(result);
-            return result;
-        } else {
-            throw new IllegalArgumentException("Division by zero is not allowed");
+        if (b == 0) {
+            throw new IllegalArgumentException("Division by zero");
         }
+        double result = a / b;
+        display.displayValue(result);
+        return result;
     }
 }

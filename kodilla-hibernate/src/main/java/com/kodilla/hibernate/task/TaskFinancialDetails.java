@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "TASK_FINANCIAL_DETAILS")
 public class TaskFinancialDetails {
+
     @Id
     @GeneratedValue
     private int id;
@@ -34,17 +35,5 @@ public class TaskFinancialDetails {
 
     public boolean isPaid() {
         return paid;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
-    public void setPaid(boolean paid) {
-        this.paid = paid;
     }
 }

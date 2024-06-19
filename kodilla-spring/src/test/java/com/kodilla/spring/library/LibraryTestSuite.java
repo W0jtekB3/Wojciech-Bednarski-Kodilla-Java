@@ -1,4 +1,4 @@
-package com.kodilla.spring.library;
+package com.kodilla.spring.reader;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,23 +8,16 @@ import org.springframework.boot.test.context.SpringBootTest;
 class LibraryTestSuite {
 
     @Autowired
-    private Library library;
+    private Reader reader;
 
     @Test
-    public void testLoadFromDb() {
-        //Given
-        //When
-        library.loadFromDb();
-        //Then
-        //do nothing
-    }
+    public void testRead() {
+        // Given
 
-    @Test
-    public void testSaveToDb() {
-        //Given
-        //When
-        library.saveToDb();
-        //Then
-        //do nothing
+        // When
+        reader.read();
+
+        // Then
+        // Verify output manually or with logs
     }
 }

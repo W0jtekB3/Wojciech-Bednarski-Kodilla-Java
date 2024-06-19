@@ -9,5 +9,4 @@ class KodillaSpringWebApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }

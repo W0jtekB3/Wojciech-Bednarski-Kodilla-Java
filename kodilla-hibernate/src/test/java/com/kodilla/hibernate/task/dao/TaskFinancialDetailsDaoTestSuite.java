@@ -21,25 +21,19 @@ class TaskFinancialDetailsDaoTestSuite {
 
     @Test
     void testFindByPaid() {
-        // Given
-        TaskFinancialDetails taskFinancialDetails =
-                new TaskFinancialDetails(new BigDecimal(115), false);
+        //Given
+        TaskFinancialDetails taskFinancialDetails = new TaskFinancialDetails(new BigDecimal(115), false);
         taskFinancialDetailsDao.save(taskFinancialDetails);
         int id = taskFinancialDetails.getId();
 
-        // Debugging: Print the saved task financial details
-        System.out.println("Saved TaskFinancialDetails ID: " + id);
-
-        // When
+        //When
         List<TaskFinancialDetails> resultList = taskFinancialDetailsDao.findByPaid(false);
 
-        // Debugging: Print the retrieved results
-        resultList.forEach(details -> System.out.println("Retrieved TaskFinancialDetails ID: " + details.getId()));
-
-        // Then
+        //Then
         assertEquals(1, resultList.size());
+        assertEquals(id, resultList.get(0).getId());
 
-        // CleanUp
+        //CleanUp
         taskFinancialDetailsDao.deleteById(id);
     }
 }

@@ -1,14 +1,14 @@
 package com.kodilla.spring.reader;
 
-public final class Book {
+public class Book {
 
-    final String title;
-
-    public Book(final String title) {
-        this.title = title;
-    }
+    private String title = "Spring Framework";
 
     public String getTitle() {
         return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

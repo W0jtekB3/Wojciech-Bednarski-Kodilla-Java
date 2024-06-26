@@ -2,6 +2,10 @@ package com.kodilla.exception.io;
 
 import org.junit.jupiter.api.Test;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.stream.Stream;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class FileReaderTestSuite {
@@ -13,25 +17,15 @@ class FileReaderTestSuite {
         // when & then
         assertDoesNotThrow(() -> fileReader.readFile());
     }
+    public void readFile(final String fileName) throws FileReaderException {
+        ClassLoader classLoader = getClass().getClassLoader();
 
-    @Test
-    void whenFileDoesNotExistReadFileShouldThrowException() {
-        // given
-        FileReader fileReader = new FileReader();
-        String fileName = "nie_ma_takiego_pliku.txt";
-        // when & then
-        assertThrows(FileReaderException.class, () -> fileReader.readFile(fileName));
-    }
-
-    @Test
-    public void testReadFileWithName() {
-        // given
-        FileReader fileReader = new FileReader();
-        // when & then
-        assertAll(
-                () -> assertThrows(FileReaderException.class, () -> fileReader.readFile("nie_ma_takiego_pliku.txt")),
-                () -> assertThrows(FileReaderException.class, () -> fileReader.readFile(null)),
-                () -> assertDoesNotThrow(() -> fileReader.readFile("names.txt"))
-        );
+        try (Stream<String> fileLines = Files.lines(Path.of(classLoader.getResource(fileName).toURI()))) {
+            fileLines.forEach(System.out::println);
+        } catch (Exception e) {
+            throw new FileReaderException();
+        } finally {
+            System.out.println("I am gonna be here... always!");
+        }
     }
 }

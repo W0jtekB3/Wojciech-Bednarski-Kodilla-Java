@@ -8,12 +8,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 
 @SpringBootTest
-class TaskListDaoTestSuite {
+public class TaskListDaoTestSuite {
 
     @Autowired
     private TaskListDao taskListDao;
 
-    private static final String LISTNAME = "Test List";
+    public static final String LISTNAME = "Test List";
     private static final String DESCRIPTION = "Test Description";
 
     @Test

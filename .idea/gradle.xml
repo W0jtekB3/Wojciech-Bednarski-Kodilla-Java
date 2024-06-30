@@ -20,9 +20,6 @@
           </set>
         </option>
       </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/kodilla-hibernate" />
-      </GradleProjectSettings>
     </option>
   </component>
 </project>

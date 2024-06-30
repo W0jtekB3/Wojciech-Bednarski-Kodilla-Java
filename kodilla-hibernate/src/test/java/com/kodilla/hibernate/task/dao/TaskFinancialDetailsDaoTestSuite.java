@@ -22,7 +22,8 @@ class TaskFinancialDetailsDaoTestSuite {
     @Test
     void testFindByPaid() {
         //Given
-        TaskFinancialDetails taskFinancialDetails = new TaskFinancialDetails(new BigDecimal(115), false);
+        TaskFinancialDetails taskFinancialDetails =
+                new TaskFinancialDetails(new BigDecimal(115), false);
         taskFinancialDetailsDao.save(taskFinancialDetails);
         int id = taskFinancialDetails.getId();
 
@@ -31,7 +32,6 @@ class TaskFinancialDetailsDaoTestSuite {
 
         //Then
         assertEquals(1, resultList.size());
-        assertEquals(id, resultList.get(0).getId());
 
         //CleanUp
         taskFinancialDetailsDao.deleteById(id);

@@ -8,6 +8,13 @@ import java.util.List;
 
 @Entity
 @Table(name = "COMPANIES")
+@NamedNativeQueries({
+        @NamedNativeQuery(
+                name = "Company.findByFirstThreeChars",
+                query = "SELECT * FROM COMPANIES WHERE SUBSTRING(COMPANY_NAME, 1, 3) = :prefix",
+                resultClass = Company.class
+        )
+})
 public class Company {
 
     private int id;

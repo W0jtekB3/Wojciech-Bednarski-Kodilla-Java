@@ -1,0 +1,12 @@
+-- Display the query plan before adding the index
+EXPLAIN SELECT * FROM READERS WHERE FIRSTNAME = 'John';
+
+-- Add index to the FIRSTNAME and LASTNAME columns in the READERS table
+CREATE INDEX idx_readers_firstname ON READERS(FIRSTNAME);
+CREATE INDEX idx_readers_lastname ON READERS(LASTNAME);
+
+-- Add index to the TITLE column in the BOOKS table
+CREATE INDEX idx_books_title ON BOOKS(TITLE);
+
+-- Display the query plan after adding the index
+EXPLAIN SELECT * FROM READERS WHERE FIRSTNAME = 'John';
